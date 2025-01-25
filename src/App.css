@@ -1,0 +1,271 @@
+/* src/App.css */
+
+/* Reset simplu */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  font-family: 'Poppins', sans-serif;
+  background: #fafafa;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+/* Container general pentru app */
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/************************************************/
+/*        Banner: gradient animat + val 3D      */
+/************************************************/
+.welcomeBanner {
+  position: relative;
+  text-align: center;
+  color: #fff;
+  padding: 100px 20px 150px; /* spațiu extra jos pentru val */
+  width: 100%;
+  background: linear-gradient(-45deg, #6a11cb, #2575fc, #ff7e5f, #feb47b);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  overflow: hidden;
+}
+
+.welcomeBanner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* Ajustează opacitatea după nevoie */
+  z-index: 0;
+}
+
+.welcomeBanner h1 {
+  position: relative;
+  z-index: 1;
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+}
+
+.welcomeBanner p {
+  position: relative;
+  z-index: 1;
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+/* SVG incorporat ca background pentru efect de val în partea de jos a bannerului */
+.welcomeBanner::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 150px;
+  background: url("data:image/svg+xml,%3Csvg width='1440' height='320' viewBox='0 0 1440 320' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23ffffff' fill-opacity='1' d='M0,288L1440,64L1440,320L0,320Z'%3E%3C/path%3E%3C/svg%3E") no-repeat bottom center;
+  background-size: cover;
+}
+
+/* Animația gradientului */
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/************************************************/
+/*       Secțiunea de Beneficii                 */
+/************************************************/
+.benefitsSection {
+  background: #fff;
+  padding: 60px 20px;
+  width: 100%;
+  text-align: center;
+}
+
+.benefitsSection h2 {
+  font-size: 2rem;
+  margin-bottom: 40px;
+  color: #333;
+}
+
+.benefitsContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.benefitCard {
+  background: #f9f9f9;
+  padding: 30px 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  flex: 1 1 250px;
+  max-width: 300px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.benefitCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+}
+
+.benefitCard i {
+  font-size: 2rem;
+  color: #6a11cb;
+  margin-bottom: 15px;
+}
+
+.benefitCard h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.benefitCard p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/************************************************/
+/*   Card cu instrucțiuni ce suprapune valul    */
+/************************************************/
+.infoBox {
+  background: #fff;
+  margin: -80px auto 40px; /* margin-top negativ pt. a suprapune valul */
+  padding: 30px 40px;
+  max-width: 700px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  text-align: center;
+  position: relative;
+  z-index: 1; /* să fie deasupra bannerului */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.infoBox:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+.infoBox h2 {
+  margin-bottom: 15px;
+  font-size: 1.8rem;
+  color: #333;
+  text-transform: uppercase;
+}
+
+.infoBox p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #555;
+}
+
+.infoBox strong {
+  color: #000;
+}
+
+/************************************************/
+/*       Chatbot Button 3D (presupunere)       */
+/************************************************/
+/* Butonul Chatbot */
+.chatbotButton {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #6e8efb, #a777e3);
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  cursor: pointer;
+  transform: translateY(0);
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chatbotButton:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 25px rgba(0,0,0,0.3);
+}
+
+.chatbotButton:active {
+  transform: translateY(0);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* Iconă în interiorul butonului */
+.chatbotButton i {
+  color: #fff;
+  font-size: 1.5rem;
+  transform: rotate(0deg);
+  transition: transform 0.3s;
+}
+
+.chatbotButton:hover i {
+  transform: rotate(360deg);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .welcomeBanner h1 {
+    font-size: 2.5rem;
+  }
+
+  .welcomeBanner p {
+    font-size: 1rem;
+  }
+
+  .benefitsContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .benefitCard {
+    max-width: 90%;
+  }
+
+  .infoBox {
+    margin: -60px auto 30px;
+    padding: 20px 25px;
+    max-width: 90%;
+    transform: none;
+  }
+
+  .infoBox h2 {
+    font-size: 1.5rem;
+  }
+
+  .infoBox p {
+    font-size: 1rem;
+  }
+
+  .chatbotButton {
+    width: 50px;
+    height: 50px;
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .chatbotButton i {
+    font-size: 1.2rem;
+  }
+}
