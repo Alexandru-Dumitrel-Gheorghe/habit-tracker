@@ -6,7 +6,7 @@
   --color-secondary: #2575fc;
   --color-accent: #ff7e5f;
   --color-accent-light: #feb47b;
-  --color-white: #ffffff;
+  --color-white: #f0f4f8 !important;
   --color-dark: #333333;
   --color-text: #333333; /* Text pentru modul luminos */
   --color-background: #f0f4f8;
@@ -317,7 +317,7 @@
 }
 
 .infoBox strong {
-  color: var(--color-white);
+  color: var(--color-accent);
 }
 
 /************************************************/
